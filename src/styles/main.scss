@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+$background: #4a3d70;
+$background-note:#271f3d;
+$border-menu: #f0491f;
+*{
+	outline:none;
+	color: #fff;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Comfortaa', cursive;
+	font-family: 'Dancing Script', cursive;
+}
+.head {
+	width: 100%;
+	height: 60px;
+	background-color: rgba(0,0,0,0.6);
+	position: absolute;
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	padding: 0 3rem;
+	border-radius: 0 0 10px 10px;
+	border-bottom: 2px solid #fff;
+}
+.head-btn{
+	text-transform: uppercase;
+	margin: 0 1rem;
+	width: max-content;
+	height: fit-content;
+	padding: 5px 10px;
+	border: $border-menu 2px solid;
+	border-radius: 10px;
+	position: relative;
+	color: #fff;
+	cursor: pointer;
+	user-select: none;
+	transition: all 0.2s;
+	&:hover{
+		transition: all 0.2s;
+		box-shadow: 0px 0px 7px red;
+	}
+}
+.head-btn:hover > .head-wrap-desc{
+	opacity: 1;
+	transition: all 0.2s;
+}
+.head-wrap-desc{
+	text-transform: none;
+	position: absolute;
+	width: 300px;
+	height: max-content;
+	background-color: #342b4f;
+	color: #fff;
+	border-radius: 40px 15px;
+	border: $border-menu 2px solid;
+	padding: 15px;
+	z-index: 1;
+	cursor: default;
+	user-select: none;
+	pointer-events: none;
+	right:0;
+	top:100%;
+	transform: translate(0, 15%);
+	
+	opacity: 0;
+	transition: all 0.2s;
+}
+.tittle{
+	color: #fff;
+	font-weight: 700;
+	 margin-right: auto;
+	 user-select: none;
+	 cursor:grab;
+}
+.wrap {
+	display: flex;
+	background-color: $background;
+	width: 100%;
+	min-height: 100vh;
+	padding: 3rem;
+	padding-top: 6rem;
+	flex-wrap: wrap;
+}
+
+
+
+.note {
+
+	background-color: $background-note;
+	border: #fff 2px solid;
+	border-radius: 5px 20px;
+	padding: 1rem;
+	position: relative;
+	height: max-content;
+	width: max-content;
+	margin: 1rem;
+}
+.note-icon{
+	display: flex;
+	justify-items: center;
+	align-items: center;
+	border-radius: 100%;
+	border: #fff 2px solid;
+	padding: 0.2rem;
+	margin-left: 0.5rem;
+	height: 3rem;
+	width: 3rem;
+	cursor: pointer;
+}
+.note-icon > img {
+	pointer-events: none;
+	transform: translate(-50%, 0);
+	scale: 0.4;
+}
+.note-wrap-delete > img{
+	transform: translate(-35%, 0);
+	scale: 0.6;
+}
+.note-wrap-edit{
+	transition: all 0.15s;
+}
+.note-wrap-edit-complate{
+	transition: all 0.15s;
+	position: absolute;
+	right: 4.5rem;
+}
+.note-tittle{
+	font-family: 'Nunito', sans-serif;
+	font-size: 2rem;
+	font-weight: 600;
+	max-width: 350px;
+	min-width: 150px;
+}
+.note-header{
+	display: flex;
+	align-items: center;
+}
+.note-text{
+	font-family: 'Neucha', cursive;
+	font-size: 1.5rem;
+	resize: none;
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	cursor:text;
+	width: 100%;
+}
+
+.note-body{
+	margin-top: 0.5rem;
+}
+.note-bottom{
+	display: flex;
+	margin-top: 1rem;
+	font-size: 0.8rem;
+}
+.note-last-edit{
+	margin-left: auto;
+}
+.note-last-edit > img{
+	margin-left: 3px;
+	width: 0.8rem;
+}
+.hide {
+	transition: all 0.15s;
+	scale: 0;
+}
+
+
+
+.create-wrap{
+	z-index: 100;
+	position: fixed;
+	background-color: rgba(0,0,0,0.8);
+	width: 100%;
+	height: 100vh;
+}
+.create-block{
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	background-color: $background-note;
+	border: #fff 2px solid;
+	border-radius: 5px 20px;
+	padding: 1rem;
+	position: relative;
+	height: max-content;
+	width: max-content;
+	margin: 1rem;
+}
+.create-tittle{
+	font-family: 'Nunito', sans-serif;
+	font-weight: 600;
+	cursor:text;
+	margin-bottom: 1rem;
+	font-size: 2rem;
+	background-color: transparent;
+	border-radius: 5px;
+	border: 1px solid #fff;
+	padding: 5px;
+}
+.create-text{
+	padding: 10px;
+	margin-bottom: 1rem;
+	font-family: 'Neucha', cursive;
+	font-size: 1.5rem;
+	resize: none;
+	background-color: transparent;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	overflow: hidden;
+	cursor:text;
+}
+#create-btn{
+	padding: 10px;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	background-color: transparent;
+	cursor: pointer;
+	transition: all 0.2s;
+	&:hover{
+		transition: all 0.2s;
+		box-shadow: 0px 0px 7px red;
+	}
+}
