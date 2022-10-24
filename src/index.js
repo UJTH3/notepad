@@ -105,19 +105,20 @@ function dragDrop(e) {
 		document.onmousemove = null;
 		item.parentElement.parentElement.onmouseup = null;
 	};
-}
-
-item.parentElement.parentElement.ondragstart = function() {
-	return false;
-};
-
-function getCoords(elem) {   // кроме IE8-
-	var box = elem.getBoundingClientRect();
-	return {
-		top: box.top + pageYOffset,
-		left: box.left + pageXOffset
+	item.parentElement.parentElement.ondragstart = function() {
+		return false;
 	};
+	
+	function getCoords(elem) {   // кроме IE8-
+		var box = elem.getBoundingClientRect();
+		return {
+			top: box.top + pageYOffset,
+			left: box.left + pageXOffset
+		};
+	}
 }
+
+
 
 
 
@@ -209,6 +210,9 @@ for(let item of textarea){
 		this.style.height = tab + "px";
 	});
 }
+document.querySelector('.add-note').addEventListener('click', (event) =>{
+	document.querySelector('.create-wrap').classList.remove('hide');
+});
 
 document.querySelector('.create-wrap').addEventListener('click', (event) =>{
 	if(event.target.classList[0] != 'create-wrap'){
@@ -217,9 +221,6 @@ document.querySelector('.create-wrap').addEventListener('click', (event) =>{
 	event.target.classList.add('hide');
 }, true);
 
-document.querySelector('.add-note').addEventListener('click', (event) =>{
-	document.querySelector('.create-wrap').classList.remove('hide');
-});
 
 
 document.querySelector('#create-btn').addEventListener('click', (event) => {
