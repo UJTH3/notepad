@@ -20,6 +20,7 @@ class Note{
 		<div class="note-bottom"><div class="note-create">${this.createDate}</div><div class="note-last-edit">${this.editDate}<img src="https://img.icons8.com/external-becris-lineal-becris/64/FFFFFF/external-edit-mintab-for-ios-becris-lineal-becris.png"/></div></div>
 		<div id="${this.id}"></div>`;
 		note.querySelector('.note-text').disabled = true;
+		note.querySelector('.note-text').addEventListener('keydown', resizeTextarea);
 		note.querySelector('.note-wrap-edit-complate').addEventListener('click', saveNote);
 		note.querySelector('.note-wrap-edit').addEventListener('click', editNote);
 		note.querySelector('.note-wrap-delete').addEventListener('click', deleteNote);
@@ -202,14 +203,16 @@ function calcHeight(el) {
 	document.body.removeChild(div);
 	return(res);
 }
-let textarea = document.querySelectorAll('.note-text');
-for(let item of textarea){
-	item.addEventListener('keyup', function(){
-		
-		let tab = calcHeight(item);
-		this.style.height = tab + "px";
-	});
+
+let textareas = document.querySelectorAll('.note-text');
+for(let item of textareas){
+	item.addEventListener('keydown', resizeTextarea);;
 }
+function resizeTextarea(event){
+	let tab = calcHeight(event.target);
+	event.target.style.height = tab + "px";
+}
+
 document.querySelector('.add-note').addEventListener('click', (event) =>{
 	document.querySelector('.create-wrap').classList.remove('hide');
 });
